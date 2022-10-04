@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-type Props = {}
-
-const Pantalla2 = (props: Props) => {
+const Pantalla2 = (): JSX.Element => {
   return (
     <View>
       <Text>Pantalla2</Text>
