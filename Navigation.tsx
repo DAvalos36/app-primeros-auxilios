@@ -6,6 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 import Pantalla2 from './screens/Pantalla2'
 import Pantalla1 from './screens/Pantalla1'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const Tab = createBottomTabNavigator()
 
@@ -37,7 +38,9 @@ const MyTabs = (): JSX.Element => {
 export default function Navigation (): JSX.Element {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <SafeAreaProvider>
+        <MyTabs />
+      </SafeAreaProvider>
     </NavigationContainer>
   )
 }
