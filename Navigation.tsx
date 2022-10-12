@@ -13,11 +13,21 @@ const MyTabs = (): JSX.Element => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Pantalla 1" component={Pantalla1}
-        // options={{ title: 'Pantalla 1' }}
+        options={{
+          title: 'Pantalla 1',
+          tabBarLabel: 'Información',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="info" size={size} color={color} />
+          )
+        }}
       />
       <Tab.Screen name="Pantalla 2" component={Pantalla2}
         options={{
-          headerShown: false
+          headerShown: false,
+          tabBarLabel: 'Primeros Auxilios',
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialIcons name="healing" size={size} color={color}/>
+          )
         }}
       />
     </Tab.Navigator>
