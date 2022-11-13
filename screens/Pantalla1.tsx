@@ -1,8 +1,13 @@
 import { StyleSheet, ImageBackground } from 'react-native'
-import { Text, View, Carousel, Image } from 'react-native-ui-lib'
+import { Text, View, Carousel } from 'react-native-ui-lib'
 import React from 'react'
+import { FlatList } from 'react-native-gesture-handler'
+
+import ElementoInteres from '../components/ElementoInteres'
 
 const info = ['abc', 'dos', 'tres']
+
+const temp = [{ titulo: 'abbc' }, { titulo: 'dos' }, { titulo: 'tres' }, { titulo: 'cuatro' }, { titulo: 'cuatro' }, { titulo: 'ultimoos' }]
 
 const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
   return (
@@ -32,8 +37,8 @@ const Pantalla1 = (): JSX.Element => {
       </View>
       <View style={styles.containerInteres}>
         <Text text40>Interes</Text>
+        <FlatList data={temp} renderItem={ElementoInteres} />
       </View>
-
     </View>
   )
 }
