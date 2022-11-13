@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, ImageBackground } from 'react-native'
 import { Text, View, Carousel, Image } from 'react-native-ui-lib'
 import React from 'react'
 
@@ -6,12 +6,12 @@ const info = ['abc', 'dos', 'tres']
 
 const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
   return (
-    <View style={{ paddingHorizontal: 10 }}>
-      <Image
-        style={{ width: '100%', aspectRatio: 6 / 3, borderRadius: 20 }} source={{ uri: 'https://picsum.photos/500/300' }}
-        resizeMode='cover'
-      />
-      <Text text70>{texto}</Text>
+    <View style={styles.containerImgCarrusel}>
+      <ImageBackground
+        style={styles.imgCarrusel} source={{ uri: 'https://picsum.photos/500/300' }}
+        resizeMode='cover' >
+        <Text text50>{texto}</Text>
+      </ImageBackground>
     </View>
   )
 }
@@ -51,5 +51,15 @@ const styles = StyleSheet.create({
   },
   containerInteres: {
     flex: 7
+  },
+  containerImgCarrusel: {
+    paddingHorizontal: 8,
+    borderRadius: 50
+  },
+  imgCarrusel: {
+    width: '100%',
+    aspectRatio: 6 / 3,
+    borderRadius: 20,
+    justifyContent: 'flex-end'
   }
 })
