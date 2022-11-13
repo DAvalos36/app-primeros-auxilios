@@ -7,7 +7,7 @@ import ElementoInteres from '../components/ElementoInteres'
 
 const info = ['abc', 'dos', 'tres']
 
-const temp = [{ titulo: 'abbc' }, { titulo: 'dos' }, { titulo: 'tres' }, { titulo: 'cuatro' }, { titulo: 'cuatro' }, { titulo: 'ultimoos' }]
+const temp = [{ titulo: 'abbc' }, { titulo: 'dos' }, { titulo: 'tres' }, { titulo: 'cuaaatro' }, { titulo: 'cuatro' }, { titulo: 'ultimoos' }]
 
 const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
   return (
@@ -25,7 +25,7 @@ const Pantalla1 = (): JSX.Element => {
   return (
     <View style={styles.container} >
       <View style={styles.containerInicio}>
-        <Text text40>Inicio</Text>
+        <Text text40 >Inicio</Text>
         <Carousel
           autoplay
           loop
@@ -36,7 +36,7 @@ const Pantalla1 = (): JSX.Element => {
         </Carousel>
       </View>
       <View style={styles.containerInteres}>
-        <Text text40>Interes</Text>
+        <Text text40 >Interes</Text>
         <FlatList data={temp} renderItem={ElementoInteres} />
       </View>
     </View>
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
   },
   containerInicio: {
     flex: 3,
-    borderRadius: 20
+    borderRadius: 20,
+    marginBottom: 15
   },
   containerInteres: {
     flex: 7
