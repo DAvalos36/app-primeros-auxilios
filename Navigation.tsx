@@ -6,6 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 import Pantalla2 from './screens/Pantalla2'
 import Pantalla1 from './screens/Pantalla1'
+import PantallaProblema from './screens/PantallaProblema'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const Tab = createBottomTabNavigator()
@@ -23,6 +24,15 @@ const MyTabs = (): JSX.Element => {
         }}
       />
       <Tab.Screen name="Pantalla 2" component={Pantalla2}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Primeros Auxilios',
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialIcons name="healing" size={size} color={color}/>
+          )
+        }}
+      />
+      <Tab.Screen name="Pantalla Pro" component={PantallaProblema}
         options={{
           headerShown: false,
           tabBarLabel: 'Primeros Auxilios',
