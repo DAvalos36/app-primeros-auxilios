@@ -7,6 +7,8 @@ import { MaterialIcons } from '@expo/vector-icons'
 import Pantalla2 from './screens/Pantalla2'
 import Pantalla1 from './screens/Pantalla1'
 import PantallaProblema from './screens/PantallaProblema'
+import PantallaNumeroEmergencia from './screens/PantallaNumeroEmergencia'
+
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const Tab = createBottomTabNavigator()
@@ -38,6 +40,15 @@ const MyTabs = (): JSX.Element => {
           tabBarLabel: 'Primeros Auxilios',
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialIcons name="healing" size={size} color={color}/>
+          )
+        }}
+      />
+      <Tab.Screen name="Numeros de emergencia" component={PantallaNumeroEmergencia}
+        options={{
+          title: 'Numeros de emergencia',
+          tabBarLabel: 'Numeros de emergencia',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="info" size={size} color={color} />
           )
         }}
       />
