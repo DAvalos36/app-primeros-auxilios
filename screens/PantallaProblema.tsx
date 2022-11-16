@@ -12,9 +12,19 @@ interface Props {
   pasos: string[]
   peligro: boolean
   linkImagen: string
+  numeroEmergencia?: string
 }
 
 const PantallaProblema = (): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const llamar = async (params: string) => {
+    try {
+      await Linking.openURL(`tel:${params}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <View style={styles.container} >
       <ImageBackground style={styles.imgCabecera} source={{ uri: 'https://picsum.photos/600/300' }} >
@@ -26,7 +36,8 @@ const PantallaProblema = (): JSX.Element => {
         <Text text50 style={{ marginTop: 8 }}>Pasos a seguir:</Text>
         <FlatList data={['abac', 'efga', 'jkasdñaksdñlaskñdlasdklañsdlñaskñlasdkñladslkj', 'abc', 'efg', 'jkl', 'abc', 'efg', 'jkl', 'abc', 'efg', 'jkl']} renderItem={ElementoPaso} />
         {/* Aqui abajo va a ir la variable peligro */}
-        {true && <Button label='Llamar a emergencias' backgroundColor={Colors.red30} style={{ marginTop: 10 }} />}
+        {/* eslint-disable-next-line @typescript-eslint/no-floating-promises */}
+        {true && <Button label='Llamar a emergencias' onPress={() => { llamar('911') }} backgroundColor={Colors.red30} style={{ marginTop: 10 }} />}
       </View>
     </View>
   )
