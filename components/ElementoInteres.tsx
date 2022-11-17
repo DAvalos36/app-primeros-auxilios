@@ -17,7 +17,7 @@ interface idk {
 
 const ElementoInteres = ({ item, index }: { item: idk, index: number }): JSX.Element => {
   return (
-      <TouchableOpacity throttleTime={1000} style={ styles.container } onPress={() => { alert('pico item: ' + index.toString()) } }>
+      <TouchableOpacity activeBackgroundColor='#666' throttleTime={1000} style={ styles.container } onPress={() => { alert('pico item: ' + index.toString()) } }>
         <View style={{ flex: 3, justifyContent: 'center' }}>
           <Image
             style={styles.imgElementoInteres}
@@ -37,7 +37,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 5,
     borderBottomColor: 'lightgray',
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    borderRadius: 15,
+    paddingLeft: 5
   },
   imgElementoInteres: {
     width: '100%',
