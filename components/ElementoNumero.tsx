@@ -10,18 +10,18 @@ const Cuadradito = (): JSX.Element => {
     </View>
   )
 }
-interface Props {
+export interface Props {
   numero: string
   titulo: string
 }
-const ElementoNumeroEmergencia = (): JSX.Element => {
+const ElementoNumeroEmergencia = ({ item, index }: { item: Props, index: number }): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const llamar = async () => {
-    const numero = 'tel:911'
+    const numero = `tel:${item.numero}`
     try {
       await Linking.openURL(numero)
     } catch (error) {
-      alert(`El numero telefonico es es: ${numero}`)
+      alert(`El numero telefonico es es: ${item.numero}`)
     }
   }
 
@@ -29,7 +29,7 @@ const ElementoNumeroEmergencia = (): JSX.Element => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     <TouchableOpacity activeBackgroundColor='#666' onPress={() => { llamar() }} style={styles.contenedor}>
       <Cuadradito />
-      <Text text50 style={{ flex: 1, flexWrap: 'wrap' }}>Cruz Roja</Text>
+      <Text text50 style={{ flex: 1, flexWrap: 'wrap' }}>{item.titulo}</Text>
     </TouchableOpacity>
   )
 }
