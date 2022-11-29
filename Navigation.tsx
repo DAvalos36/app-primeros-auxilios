@@ -4,9 +4,8 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import { MaterialIcons } from '@expo/vector-icons'
 
-import Pantalla2 from './screens/Pantalla2'
+import { StackNavigation } from './Navigation/StackNavigation'
 import Pantalla1 from './screens/Pantalla1'
-import PantallaProblema from './screens/PantallaProblema'
 import PantallaNumeroEmergencia from './screens/PantallaNumeroEmergencia'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -25,22 +24,9 @@ const MyTabs = (): JSX.Element => {
           )
         }}
       />
-      <Tab.Screen name="Pantalla 2" component={Pantalla2}
+      <Tab.Screen name="Buscar" component={ StackNavigation }
         options={{
-          headerShown: false,
-          tabBarLabel: 'Primeros Auxilios',
-          tabBarIcon: ({ color, size, focused }) => (
-            <MaterialIcons name="healing" size={size} color={color}/>
-          )
-        }}
-      />
-      <Tab.Screen name="Pantalla Pro" component={PantallaProblema}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Primeros Auxilios',
-          tabBarIcon: ({ color, size, focused }) => (
-            <MaterialIcons name="healing" size={size} color={color}/>
-          )
+          headerShown: false
         }}
       />
       <Tab.Screen name="Numeros de emergencia" component={PantallaNumeroEmergencia}
