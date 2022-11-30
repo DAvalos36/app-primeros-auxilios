@@ -26,7 +26,10 @@ const MyTabs = (): JSX.Element => {
       />
       <Tab.Screen name="Buscar" component={ StackNavigation }
         options={{
-          headerShown: false
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="search" size={size} color={color} />
+          )
         }}
       />
       <Tab.Screen name="Numeros de emergencia" component={PantallaNumeroEmergencia}
@@ -34,7 +37,7 @@ const MyTabs = (): JSX.Element => {
           title: 'Numeros de emergencia',
           tabBarLabel: 'Numeros de emergencia',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="info" size={size} color={color} />
+            <MaterialIcons name="phone-enabled" size={size} color={color} />
           )
         }}
       />
