@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import type { StackNavigationProp } from '@react-navigation/stack'
+import type { StackNavigationProp, StackScreenProps } from '@react-navigation/stack'
 
 import { Caso2 } from '../types/PrimerosAuxilios'
 
@@ -14,6 +14,7 @@ type StackNavigationParamList = {
 }
 
 export type HStackNavigationProp = StackNavigationProp<StackNavigationParamList, 'Problema'>
+export type PantallaProblemaProps = StackScreenProps<StackNavigationParamList, 'Problema'>
 
 const Stack = createStackNavigator<StackNavigationParamList>()
 
