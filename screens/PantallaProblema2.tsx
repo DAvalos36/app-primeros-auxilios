@@ -6,12 +6,10 @@ import React from 'react'
 import Markdown from 'react-native-markdown-display'
 import { ScrollView } from 'react-native-gesture-handler'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+import { PantallaProblemaProps } from '../Navigation/StackNavigation'
 
-import { Caso2 } from '../types/PrimerosAuxilios'
-import { problemas } from '../infoInicial'
-
-const PantallaProblema2 = (): JSX.Element => {
+const PantallaProblema2 = ({ route }: PantallaProblemaProps): JSX.Element => {
+  const info = route.params
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const llamar = async (params: string) => {
     try {
@@ -23,13 +21,13 @@ const PantallaProblema2 = (): JSX.Element => {
 
   return (
     <ScrollView style={styles.container} >
-      <ImageBackground style={styles.imgCabecera} source={{ uri: problemas[3].linkImagen }} >
-        <Text text30 color={Colors.primary} underline >{problemas[3].titulo}</Text>
+      <ImageBackground style={styles.imgCabecera} source={{ uri: info.linkImagen }} >
+        <Text text30 color={Colors.primary} underline >{info.titulo}</Text>
       </ImageBackground>
       <View style={{ flex: 1, padding: 10, paddingBottom: 10 }} >
-        <Markdown>{problemas[4].contenido}</Markdown>
+        <Markdown>{info.contenido}</Markdown>
 
-        {true && <Button label='Llamar a emergencaias' onPress={() => { void llamar('911') }} backgroundColor={Colors.red30} style={{ marginTop: 10 }} />}
+        {info.peligro && <Button label='Llamar a emergencaias' onPress={() => { void llamar('911') }} backgroundColor={Colors.red30} style={{ marginTop: 10 }} />}
       </View>
     </ScrollView>
   )

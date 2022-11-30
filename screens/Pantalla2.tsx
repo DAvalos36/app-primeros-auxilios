@@ -1,11 +1,16 @@
 import { StyleSheet } from 'react-native'
-import { View, Text, Button, Incubator, Colors } from 'react-native-ui-lib'
+import { View, Incubator, Colors } from 'react-native-ui-lib'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import ElementoBusqueda from '../components/ElementoBusqueda'
-import ElementoPaso from '../components/ElementoPaso'
+import { FlatList } from 'react-native-gesture-handler'
+
+import { problemas } from '../infoInicial'
+import { HStackNavigationProp } from '../Navigation/StackNavigation'
 
 const Pantalla2 = (): JSX.Element => {
+  const navigation = useNavigation<HStackNavigationProp>()
   return (
     <SafeAreaView style={{ flex: 1 }} >
       {/* <Text>Pantalla2</Text> */}
@@ -16,16 +21,10 @@ const Pantalla2 = (): JSX.Element => {
             style={ styles.barraBuscar }
           />
         </View>
-        <View style={styles.superiorContenedorBoton}>
-          <Button label='idk'/>
-        </View>
       </View>
 
       <View style={styles.contentido}>
-        <ElementoBusqueda nombre='asdasd'/>
-        <ElementoPaso item='asdasd' index={1} />
-        <ElementoPaso item='asdasd' index={2} />
-        <ElementoPaso item='laksdjlka' index={3} />
+        <FlatList data={problemas} renderItem={({ index, item }) => <ElementoBusqueda item={ item } index={ index } navigation={navigation} /> } />
       </View>
     </SafeAreaView>
   )

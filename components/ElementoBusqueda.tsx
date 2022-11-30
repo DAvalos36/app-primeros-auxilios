@@ -1,20 +1,20 @@
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { ListItem, Text, Icon, Colors } from 'react-native-ui-lib'
 
-interface Props {
-  nombre: string
-}
+import { Caso2 } from '../types/PrimerosAuxilios'
+import { HStackNavigationProp } from '../Navigation/StackNavigation'
 
-const ElementoBusqueda = (props: Props): JSX.Element => {
+const ElementoBusqueda = ({ item, index, navigation }: { item: Caso2, index: number, navigation: HStackNavigationProp }): JSX.Element => {
   return (
-    <ListItem style={ styles.contenedor }>
+    <ListItem activeBackgroundColor={Colors.$backgroundDarkActive} onPress={() => navigation.navigate('Problema', item) } style={ styles.contenedor }>
       <ListItem.Part left >
         {/* <Text>Izquierda</Text> */}
-        <Icon source={{ uri: 'https://cdn.icon-icons.com/icons2/2596/PNG/512/check_one_icon_155665.png' }} size={52} />
+        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+        <Icon source={ require('../assets/2048px-Cruz_Roja.svg.png') } size={52} />
       </ListItem.Part>
       <ListItem.Part middle >
-        <Text text60>kk</Text>
+        <Text text60>{ item.titulo }</Text>
       </ListItem.Part>
     </ListItem>
   )
