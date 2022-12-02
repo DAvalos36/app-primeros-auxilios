@@ -5,28 +5,20 @@ import { Image, Text, TouchableOpacity, View } from 'react-native-ui-lib'
 
 // SE UTILIZARA DESPUES..
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface Props {
-  id: number
-  texto: string
-  titulo: string
-  imagen: string
-}
-interface idk {
-  titulo: string
-}
+import type { Interes } from '../types/PrimerosAuxilios'
 
-const ElementoInteres = ({ item, index }: { item: idk, index: number }): JSX.Element => {
+const ElementoInteres = ({ item, index }: { item: Interes, index: number }): JSX.Element => {
   return (
       <TouchableOpacity activeBackgroundColor='#666' throttleTime={1000} style={ styles.container } onPress={() => { alert('pico item: ' + index.toString()) } }>
         <View style={{ flex: 3, justifyContent: 'center' }}>
           <Image
             style={styles.imgElementoInteres}
-            source={{ uri: 'https://picsum.photos/300/300' }}
+            source={{ uri: item.link_img }}
           />
         </View>
         <View style={{ flex: 7, paddingLeft: 5 }}>
-          <Text text60>Titulo perron {item.titulo} aaa aa</Text>
-          <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur animi nihil beatae optio nulla eum nostrum et ullam. Ratione quod dolorum numquam assumenda rerum perferendis?</Text>
+          <Text text60>{item.titulo}</Text>
+          <Text>{item.contenido}</Text>
         </View>
       </TouchableOpacity>
   )
