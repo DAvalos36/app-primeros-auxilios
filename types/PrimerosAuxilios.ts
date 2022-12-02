@@ -20,3 +20,11 @@ export interface Caso2 {
   linkImagen: string
   numeroEmergencia?: string
 }
+
+export interface Interes {
+  id: number
+  titulo: string
+  contenido: string
+  link_img: string
+  created_at: string
+}
