@@ -34,7 +34,8 @@ export default Pantalla2
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    padding: 20
   },
   superior: {
     flex: 1,
@@ -51,11 +52,12 @@ const styles = StyleSheet.create({
   },
   barraBuscar: {
     width: '100%',
-    borderWidth: 1,
-    borderColor: Colors.$outlinePrimary,
+    height: 40,
+    // borderWidth: 1,
+    // borderColor: Colors.$outlinePrimary,
     padding: 4,
-    borderRadius: 18,
-    backgroundColor: Colors.$backgroundDisabled
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
   },
   superiorContenedorBoton: {
     flex: 3,

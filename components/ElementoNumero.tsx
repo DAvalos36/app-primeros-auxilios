@@ -26,8 +26,7 @@ const ElementoNumeroEmergencia = ({ item, index }: { item: Props, index: number 
   }
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    <TouchableOpacity activeBackgroundColor='#666' onPress={() => { llamar() }} style={styles.contenedor}>
+    <TouchableOpacity activeBackgroundColor='lightgray' onPress={() => { void llamar() }} style={styles.contenedor}>
       <Cuadradito />
       <Text text50 style={{ flex: 1, flexWrap: 'wrap' }}>{item.titulo}</Text>
     </TouchableOpacity>
@@ -40,9 +39,9 @@ const styles = StyleSheet.create({
   contenedor: {
     padding: 10,
     marginVertical: 2,
-    borderColor: 'black',
+    borderBottomColor: 'lightgray',
     borderBottomWidth: 1,
-    borderRadius: 15,
+    // borderRadius: 15,
     // paddingLeft: 0,
     flexDirection: 'row',
     alignItems: 'center'
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
   Cuadradito: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.cyan20,
     borderRadius: 15,
     width: 60,
     aspectRatio: 1,

@@ -5,7 +5,7 @@ import ElementoNumeroEmergencia from '../components/ElementoNumero'
 
 import type { Props as InfoNum } from '../components/ElementoNumero'
 
-const info: InfoNum[] = [{ numero: '911', titulo: 'Novecientos 11' }]
+const info: InfoNum[] = [{ numero: '911', titulo: 'Emergencias 911' }]
 
 const PantallaNumeroEmergencia = (): JSX.Element => {
   return (

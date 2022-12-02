@@ -18,7 +18,7 @@ const MyTabs = (): JSX.Element => {
     <Tab.Navigator>
       <Tab.Screen name="Pantalla 1" component={Pantalla1}
         options={{
-          title: 'Pantalla 1',
+          title: 'Informacion de interes',
           tabBarLabel: 'Información',
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="info" size={size} color={color} />

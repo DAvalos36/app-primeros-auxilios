@@ -22,7 +22,7 @@ const PantallaProblema2 = ({ route }: PantallaProblemaProps): JSX.Element => {
   return (
     <ScrollView style={styles.container} >
       <ImageBackground style={styles.imgCabecera} source={{ uri: info.linkImagen }} >
-        <Text text30 color={Colors.primary} underline >{info.titulo}</Text>
+        <Text text30 color={Colors.cyan20} >{info.titulo}</Text>
       </ImageBackground>
       <View style={{ flex: 1, padding: 10, paddingBottom: 10 }} >
         <Markdown>{info.contenido}</Markdown>
