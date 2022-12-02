@@ -1,12 +1,14 @@
 import { StyleSheet, ImageBackground } from 'react-native'
-import { Text, View, Carousel, LoaderScreen } from 'react-native-ui-lib'
+import { Text, View, Carousel, LoaderScreen, StateScreen } from 'react-native-ui-lib'
 import React, { useEffect, useState } from 'react'
+import { useNetInfo } from '@react-native-community/netinfo'
 import { FlatList } from 'react-native-gesture-handler'
 import { supabase } from '../supabase'
 
 import ElementoInteres from '../components/ElementoInteres'
 
 import type { Interes } from '../types/PrimerosAuxilios'
+import PantallaNoInternet from './PantallaNoInternet'
 
 const info = ['abc', 'dos', 'tres']
 
@@ -23,8 +25,20 @@ const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
 }
 
 const Pantalla1 = (): JSX.Element => {
+  const netInfo = useNetInfo()
+
+  const [noInternet, setNoInternet] = useState(true)
   const [intereses, setIntereses] = useState<Interes[]>([])
   const [cargando, setCargando] = useState<boolean>(true)
+
+  const probarInternet = (): void => {
+    if (netInfo.isConnected === false && netInfo.isInternetReachable === false) {
+      setNoInternet(true)
+    } else {
+      setNoInternet(false)
+      void consultar()
+    }
+  }
 
   const consultar = async (): Promise<void> => {
     console.log('entra')
@@ -48,11 +62,13 @@ const Pantalla1 = (): JSX.Element => {
 
   useEffect(() => {
     console.log('useEffect')
-    void consultar()
-  }, [])
+    void probarInternet()
+  }, [netInfo])
 
   // eslint-disable-next-line no-constant-condition
-  if (cargando) {
+  if (noInternet) {
+    return <PantallaNoInternet f={ probarInternet } />
+  } else if (cargando) {
     return <LoaderScreen message='Cargando...' />
   } else {
     return (
