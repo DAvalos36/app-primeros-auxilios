@@ -9,6 +9,7 @@ import Pantalla1 from './screens/Pantalla1'
 import PantallaNumeroEmergencia from './screens/PantallaNumeroEmergencia'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Sms from './screens/Sms'
 
 const Tab = createBottomTabNavigator()
 
@@ -38,6 +39,15 @@ const MyTabs = (): JSX.Element => {
           tabBarLabel: 'Numeros de emergencia',
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="phone-enabled" size={size} color={color} />
+          )
+        }}
+      />
+      <Tab.Screen name="SMS" component={Sms}
+        options={{
+          title: 'Localización',
+          tabBarLabel: 'Localización',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="map" size={size} color={color} />
           )
         }}
       />
