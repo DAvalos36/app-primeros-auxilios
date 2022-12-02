@@ -10,8 +10,6 @@ import type { Interes } from '../types/PrimerosAuxilios'
 
 const info = ['abc', 'dos', 'tres']
 
-const temp = [{ titulo: 'abbc' }, { titulo: 'dos' }, { titulo: 'tres' }, { titulo: 'cuaaatro' }, { titulo: 'cuatro' }, { titulo: 'ultimoos' }]
-
 const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
   return (
     <View style={styles.containerImgCarrusel}>
@@ -26,13 +24,14 @@ const ElementoCarrusel = ({ texto }: { texto: string }): JSX.Element => {
 
 const Pantalla1 = (): JSX.Element => {
   const [intereses, setIntereses] = useState<Interes[]>([])
+  const [cargando, setCargando] = useState<boolean>(true)
 
   const consultar = async (): Promise<void> => {
     console.log('entra')
     const { data: PRMAUXInteres, error } = await supabase
       .from('PRMAUX_Interes')
       .select('*')
-    if (error == null) {
+    if (error != null) {
       console.log(error)
       return
     }
@@ -42,6 +41,7 @@ const Pantalla1 = (): JSX.Element => {
     }
     const interesesRes = PRMAUXInteres as Interes[]
     setIntereses(interesesRes)
+    setCargando(false)
 
     console.log(PRMAUXInteres)
   }
@@ -52,8 +52,8 @@ const Pantalla1 = (): JSX.Element => {
   }, [])
 
   // eslint-disable-next-line no-constant-condition
-  if (true) {
-    return <LoaderScreen message='Cargando jsjs' />
+  if (cargando) {
+    return <LoaderScreen message='Cargando...' />
   } else {
     return (
       <View style={styles.container} >
