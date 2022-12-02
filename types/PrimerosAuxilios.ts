@@ -28,3 +28,25 @@ export interface Interes {
   link_img: string
   created_at: string
 }
+
+export interface RespuestaSalud {
+  status: string
+  totalResults: number
+  articles: Articulos[]
+}
+
+export interface Articulos {
+  source: Source
+  author: string
+  title: string
+  description: string
+  url: string
+  urlToImage: string
+  publishedAt: string
+  content: string
+}
+
+interface Source {
+  id?: string
+  name: string
+}
